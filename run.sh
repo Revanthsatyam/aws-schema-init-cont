@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/Revanthsatyam/$component.git
+git clone "https://github.com/Revanthsatyam/$component.git"
 
 aws_ssm() {
   aws ssm get-parameter --name "$1" --with-decryption --query "Parameter.Value" --output text
