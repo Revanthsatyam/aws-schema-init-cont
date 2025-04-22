@@ -7,9 +7,9 @@ aws_ssm() {
 }
 
 if [ "${schema_type}" == "DOCDB" ]; then
-  mongo_host=$(aws_ssm docdb.prod.endpoint)
-  user_name=$(aws_ssm docdb.prod.master_username)
-  password=$(aws_ssm docdb.prod.master_password)
+  mongo_host=$(aws_ssm docdb.$env.endpoint)
+  user_name=$(aws_ssm docdb.$env.master_username)
+  password=$(aws_ssm docdb.$env.master_password)
 
   mongo --ssl --host $mongo_host:27017 --sslCAFile /rds-combined-ca-bundle.pem --username $user_name --password $password <$component/schema/$component.js
 fi
