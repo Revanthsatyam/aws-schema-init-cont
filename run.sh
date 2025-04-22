@@ -11,5 +11,5 @@ if [ "${schema_type}" == "DOCDB" ]; then
   user_name=$(aws_ssm docdb.prod.master_username)
   password=$(aws_ssm docdb.prod.master_password)
 
-  mongo --ssl --host $mongo_host:27017 --sslCAFile /rds-combined-ca-bundle.pem --username $user_name --password $password <catalogue/schema/catalogue.js
+  mongo --ssl --host $mongo_host:27017 --sslCAFile /rds-combined-ca-bundle.pem --username $user_name --password $password <$component/schema/$component.js
 fi
